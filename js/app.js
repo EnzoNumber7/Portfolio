@@ -46,7 +46,7 @@ popupBtn.addEventListener("click", () => {
 gsap.registerPlugin(MotionPathPlugin);
 
 
-const centerX = window.innerWidth / 2;
+const centerX = document.documentElement.clientWidth / 2;
 const angle = 190;
 
 const sunWidth = document.getElementById("star").offsetWidth;
@@ -65,7 +65,7 @@ const unityPos = document.getElementById("unity").getBoundingClientRect().left +
 
 //Pos & Size of trajectory
 document.getElementById("python-trajectory").style.width = `${
-    window.innerWidth - 2 * 
+    document.documentElement.clientWidth - 2 * 
     (document.getElementById("python").getBoundingClientRect().width / 2 +
      document.getElementById("python").getBoundingClientRect().left)
 }px`;
@@ -75,7 +75,7 @@ gsap.to("#python-trajectory", {transformOrigin : "50% 50%", x: centerX - pythonT
 
 
 document.getElementById("cpp-trajectory").style.width = `${
-    window.innerWidth - 2 * 
+    document.documentElement.clientWidth - 2 * 
     (document.getElementById("cpp").getBoundingClientRect().width / 2 +
      document.getElementById("cpp").getBoundingClientRect().left)
 }px`;
@@ -85,7 +85,7 @@ gsap.to("#cpp-trajectory", {transformOrigin : "50% 50%", x: centerX - cppTraject
 
 
 document.getElementById("cs-trajectory").style.width = `${
-    window.innerWidth - 2 * 
+    document.documentElement.clientWidth - 2 * 
     (document.getElementById("cs").getBoundingClientRect().width / 2 +
      document.getElementById("cs").getBoundingClientRect().left)
 }px`;
@@ -94,7 +94,7 @@ const csTrajectoryWidth = document.getElementById("cs-trajectory").offsetWidth;
 gsap.to("#cs-trajectory", {transformOrigin : "50% 50%", x: centerX - csTrajectoryWidth / 2, y: -csTrajectoryWidth / 2, duration : 0});
 
 document.getElementById("unity-trajectory").style.width = `${
-    window.innerWidth - 2 * 
+    document.documentElement.clientWidth - 2 * 
     (document.getElementById("unity").getBoundingClientRect().width / 2 +
      document.getElementById("unity").getBoundingClientRect().left)
 }px`;
@@ -136,5 +136,4 @@ gsap.to("#cs-image", {rotation : angle, duration : 15, ease:"linear", repeat : "
 // Orbit Unity
 gsap.to("#unity", {rotation : -angle, duration : 18, ease:"linear", transformOrigin: `${centerX - unityPos}px 0%`, repeat : "-1" })
 gsap.to("#unity-image", {rotation : angle, duration : 18, ease:"linear", repeat : "-1"})
-console.log(document.getElementById("python").getBoundingClientRect().width)
 //#endregion
