@@ -107,8 +107,8 @@ gsap.to("#unity-trajectory", {transformOrigin : "50% 50%", x: centerX - unityTra
 
 //#region Initial Pos
 // Pos star and title
-gsap.to("#skills-title", {transformOrigin : "50% 50%", x : centerX - sunTitleWidth / 2 , duration : 0});
-gsap.to("#star", {transformOrigin : "50% 50%", x : centerX - sunWidth / 2, y: -sunHeight/2 , duration : 0});
+// gsap.to("#skills-title", {transformOrigin : "50% 50%", x : centerX - sunTitleWidth / 2 , duration : 0});
+gsap.to("#star", {transformOrigin : "50% 50%", x : centerX - sunWidth / 2, duration : 0});
 // Initial Pos Python
 gsap.to("#python", {rotation : angle - 180, duration : 0, transformOrigin: `${centerX}px 0%`})
 gsap.to("#python-image", {rotation : 180 - angle, duration : 0})

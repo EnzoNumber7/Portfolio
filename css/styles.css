@@ -166,7 +166,8 @@ p{
 
 .project-video{
     display: flex;
-    max-height: 40vh;
+    /* max-height: 40vh; */
+    width: 100%;
     border-radius: 50px;
 
 }
@@ -209,8 +210,14 @@ p{
 }
   
 #star {
-    width: 100%;
-    height: 100%;
+    background-image: url(../res/sun.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 16 / 8;
+
+    display: flex;
+    justify-content: center;
 }
 
 .trajectory{
@@ -218,13 +225,15 @@ p{
 }
 
 #skills-title{
-    position: absolute;
-    top : 0%;
+    font-size: clamp(1.5rem, 4vw, 4rem);
     color : #090709;
     text-align: center;
-    width: 75%;
-    margin-top: 5%;
+    width: 80%;
+    padding-top: 0%;
+    margin: 0px;
 }
+
+
 
 .skill {
     width: 5vw;
