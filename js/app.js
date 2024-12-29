@@ -106,9 +106,9 @@ gsap.to("#unity-trajectory", {transformOrigin : "50% 50%", x: centerX - unityTra
 
 
 //#region Initial Pos
-// Pos star and title
-// gsap.to("#skills-title", {transformOrigin : "50% 50%", x : centerX - sunTitleWidth / 2 , duration : 0});
+document.getElementsByClassName("solar-system")[0].style.height = `${(document.getElementById("python-trajectory").getBoundingClientRect().height / 2) * 1.25 }px`;
 gsap.to("#star", {transformOrigin : "50% 50%", x : centerX - sunWidth / 2, duration : 0});
+
 // Initial Pos Python
 gsap.to("#python", {rotation : angle - 180, duration : 0, transformOrigin: `${centerX}px 0%`})
 gsap.to("#python-image", {rotation : 180 - angle, duration : 0})
@@ -137,3 +137,26 @@ gsap.to("#cs-image", {rotation : angle, duration : 15, ease:"linear", repeat : "
 gsap.to("#unity", {rotation : -angle, duration : 18, ease:"linear", transformOrigin: `${centerX - unityPos}px 0%`, repeat : "-1" })
 gsap.to("#unity-image", {rotation : angle, duration : 18, ease:"linear", repeat : "-1"})
 //#endregion
+
+
+
+function rearrangeGrid() {
+    const grid = document.querySelector('.project-container');
+    const items = Array.from(grid.children);
+    const filteredItems = items.filter(item => !item.classList.contains('bar'));
+    // Remettre dans l'ordre initial avant de réorganiser
+    filteredItems.forEach((item) => grid.appendChild(item));
+  
+    // Appliquer le changement si la largeur de l'écran est inférieure à 768px
+    if (document.documentElement.clientWidth <= 768) {
+      for (let i = 2; i < filteredItems.length; i += 4) {
+        if (i + 1 < filteredItems.length) {
+          grid.insertBefore(filteredItems[i + 1], filteredItems[i]);
+        }
+      }
+    }
+  }
+  
+  // Appliquer au chargement et lors du redimensionnement
+  rearrangeGrid();
+  window.addEventListener('resize', rearrangeGrid);
