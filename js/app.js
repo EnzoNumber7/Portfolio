@@ -106,7 +106,7 @@ gsap.to("#unity-trajectory", {transformOrigin : "50% 50%", x: centerX - unityTra
 
 
 //#region Initial Pos
-document.getElementsByClassName("solar-system")[0].style.height = `${(document.getElementById("python-trajectory").getBoundingClientRect().height / 2) * 1.25 }px`;
+document.getElementsByClassName("solar-system")[0].style.height = `${(document.getElementById("python-trajectory").getBoundingClientRect().height / 2) * 1.1 }px`;
 gsap.to("#star", {transformOrigin : "50% 50%", x : centerX - sunWidth / 2, duration : 0});
 
 // Initial Pos Python
@@ -158,7 +158,14 @@ function rearrangeGrid() {
   
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
+
+  let lastWidth = window.innerWidth;
+  let lastHeight = window.innerHeight;
+
   window.addEventListener('resize', () => {
-    location.reload(); // Recharge la page
-  });
-  
+    // Vérifier si la taille du viewport a réellement changé
+    if (window.innerWidth !== lastWidth || window.innerHeight !== lastHeight) {
+      location.reload();
+
+  }
+});
