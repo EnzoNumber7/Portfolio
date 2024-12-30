@@ -324,7 +324,7 @@ p{
 @media (max-width: 768px){
 
     h1{
-        font-size: 5.5rem;
+        font-size: 4.5rem;
     }
 
     h2{
@@ -332,10 +332,23 @@ p{
     }
 
     h3{
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     h4{
         font-size: 2.2rem;
+    }
+
+    p{
+        font-size: 1rem;
+    }
+
+    #skills-title{
+        font-size: clamp(1rem, 4vw, 4rem);
+        color : #090709;
+        text-align: center;
+        width: 80%;
+        padding-top: 0%;
+        margin: 0px;
     }
 
     .hide-on-small{
@@ -366,8 +379,8 @@ p{
         background-color: #171717;
         border-radius: 50px;
     
-        width: 80%;
-        height: 80%;
+        width: 85%;
+        height: 85%;
         padding: 5%;
     
         display: flex;
@@ -377,7 +390,7 @@ p{
     }
 
     #popup-title{
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
 
     .popup-no-image{
@@ -386,10 +399,12 @@ p{
         justify-content: space-between;
     
         margin-right: 0%;
+        max-height: 50%;
     }
     
     #popup-image{
         width: 100%;
+        height: auto;
         max-height: 45%;
     }
 
@@ -398,33 +413,55 @@ p{
         border-radius: 50px;
         height: 10%;
     
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-family: "Aldrich", sans-serif;
         font-weight: bold;
+    }
+
+    .project-btn{
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 425px){
     h1{
-        font-size: 4rem;
+        font-size: clamp(3.5rem, 4vw, 4rem);
+        text-align: center;
     }
 
     h2{
-        font-size: 2.5rem;
+        font-size: 2.3rem;
+        text-align: center;
     }
 
     h3{
-        font-size: 3rem;
+        font-size: 2.8rem;
+        text-align: center;
     }
     h4{
         font-size: 2rem;
     }
 
     p{
-        font-size: 1rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .project p{
+        text-align: left;
+    }
+
+    .hero-text{
+        margin-left: 15%;
+        margin-right: 15%;
+        max-width: 100%;
     }
 
     #popup-title{
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    #popup p{
+        text-align: left;
     }
 }

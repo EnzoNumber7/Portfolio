@@ -158,8 +158,7 @@ function rearrangeGrid() {
   
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
-  window.addEventListener('resize', rearrangeGrid);
-
-
-  const test = document.getElementById("test");
-  test.innerHTML = document.documentElement.clientHeight;
+  window.addEventListener('resize', () => {
+    location.reload(); // Recharge la page
+  });
+  
