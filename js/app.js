@@ -162,4 +162,4 @@ function rearrangeGrid() {
 
 
   const test = document.getElementById("test");
-  test.innerHTML = document.documentElement.clientWidth;
+  test.innerHTML = document.documentElement.clientHeight;
