@@ -144,11 +144,10 @@ function rearrangeGrid() {
     const grid = document.querySelector('.project-container');
     const items = Array.from(grid.children);
     const filteredItems = items.filter(item => !item.classList.contains('bar'));
-    // Remettre dans l'ordre initial avant de réorganiser
-    filteredItems.forEach((item) => grid.appendChild(item));
-  
-    // Appliquer le changement si la largeur de l'écran est inférieure à 768px
+
     if (document.documentElement.clientWidth <= 768) {
+      filteredItems.forEach((item) => grid.appendChild(item));
+
       for (let i = 2; i < filteredItems.length; i += 4) {
         if (i + 1 < filteredItems.length) {
           grid.insertBefore(filteredItems[i + 1], filteredItems[i]);
@@ -160,3 +159,7 @@ function rearrangeGrid() {
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
   window.addEventListener('resize', rearrangeGrid);
+
+
+  const test = document.getElementById("test");
+  test.innerHTML = document.documentElement.clientWidth;
