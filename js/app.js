@@ -5,9 +5,7 @@ var popupTitle = document.getElementById("popup-title");
 var popupSkills = document.getElementById("popup-skills");
 var popupDesc = document.getElementById("popup-desc");
 var popupImage = document.getElementById("popup-image");
-var popupRole = document.getElementById("popup-role");
-var popupDiff = document.getElementById("popup-difficulties");
-var popupLearn = document.getElementById("popup-learning");
+var popupLink = document.getElementById("popup-link");
 const popupBtn = document.getElementById("popup-btn");
 
 let allProjectBtns = [];
@@ -19,14 +17,24 @@ for (let i = 0; i < projects.length; i++) {
     // Parcourir chaque bouton
     for (let j = 0; j < buttons.length; j++) {
         buttons[j].addEventListener("click", () => {
-            console.log(projects[i].getElementsByClassName("project-title")[0])
+          const description = buttons[j].getAttribute("data-desc");
+    
+          const formattedDescription = description.replaceAll("$", "<br>");
+
             popupTitle.innerHTML = projects[i].getElementsByClassName("project-title")[0].innerHTML;
             popupSkills.innerHTML = projects[i].getElementsByClassName("project-skills")[0].innerHTML;
-            popupDesc.innerHTML = projects[i].getElementsByClassName("project-desc")[0].innerHTML;
-            popupImage.innerHTML = projects[i].getElementsByClassName("project-image")[0].innerHTML;
-            popupRole.innerHTML = buttons[j].getAttribute("data-role");
-            popupDiff.innerHTML = buttons[j].getAttribute("data-difficulties");
-            popupLearn.innerHTML = buttons[j].getAttribute("data-learning");
+            popupDesc.innerHTML = formattedDescription;
+            popupImage.src = projects[i].getElementsByClassName("project-image")[0].src;
+            popupLink.href = buttons[j].getAttribute("data-link");
+            popupLink.innerHTML = buttons[j].getAttribute("data-link-text");
+
+            if (buttons[j].getAttribute("data-link") == "")
+            {
+              popupLink.style.display = "none";
+            }
+            else{
+              popupLink.style.display = "inline";
+            }
     
             popup.style.display = "flex";
             document.body.classList.add("no-scroll");
@@ -56,7 +64,7 @@ const cppTrajectoryHeight = document.getElementById("cpp-trajectory").offsetHeig
 const csTrajectoryHeight = document.getElementById("cs-trajectory").offsetHeight;
 const unityTrajectoryHeight = document.getElementById("unity-trajectory").offsetHeight;
 
-const pythonPos = document.getElementById("python").getBoundingClientRect().left + window.scrollX;
+const unrealPos = document.getElementById("unreal").getBoundingClientRect().left + window.scrollX;
 const cppPos = document.getElementById("cpp").getBoundingClientRect().left + window.scrollX;
 const csPos = document.getElementById("cs").getBoundingClientRect().left + window.scrollX;
 const unityPos = document.getElementById("unity").getBoundingClientRect().left + window.scrollX;
@@ -64,14 +72,14 @@ const unityPos = document.getElementById("unity").getBoundingClientRect().left +
 //#region Trajectory
 
 //Pos & Size of trajectory
-document.getElementById("python-trajectory").style.width = `${
+document.getElementById("unreal-trajectory").style.width = `${
     document.documentElement.clientWidth - 2 * 
-    (document.getElementById("python").getBoundingClientRect().width / 2 +
-     document.getElementById("python").getBoundingClientRect().left)
+    (document.getElementById("unreal").getBoundingClientRect().width / 2 +
+     document.getElementById("unreal").getBoundingClientRect().left)
 }px`;
 
-const pythonTrajectoryWidth = document.getElementById("python-trajectory").offsetWidth;
-gsap.to("#python-trajectory", {transformOrigin : "50% 50%", x: centerX - pythonTrajectoryWidth / 2, y: -pythonTrajectoryWidth / 2, duration : 0});
+const unrealTrajectoryWidth = document.getElementById("unreal-trajectory").offsetWidth;
+gsap.to("#unreal-trajectory", {transformOrigin : "50% 50%", x: centerX - unrealTrajectoryWidth / 2, y: -unrealTrajectoryWidth / 2, duration : 0});
 
 
 document.getElementById("cpp-trajectory").style.width = `${
@@ -106,12 +114,12 @@ gsap.to("#unity-trajectory", {transformOrigin : "50% 50%", x: centerX - unityTra
 
 
 //#region Initial Pos
-document.getElementsByClassName("solar-system")[0].style.height = `${(document.getElementById("python-trajectory").getBoundingClientRect().height / 2) * 1.1 }px`;
+document.getElementsByClassName("solar-system")[0].style.height = `${(document.getElementById("unreal-trajectory").getBoundingClientRect().height / 2) * 1.1 }px`;
 gsap.to("#star", {transformOrigin : "50% 50%", x : centerX - sunWidth / 2, duration : 0});
 
-// Initial Pos Python
-gsap.to("#python", {rotation : angle - 180, duration : 0, transformOrigin: `${centerX}px 0%`})
-gsap.to("#python-image", {rotation : 180 - angle, duration : 0})
+// Initial Pos unreal
+gsap.to("#unreal", {rotation : angle - 180, duration : 0, transformOrigin: `${centerX}px 0%`})
+gsap.to("#unreal-image", {rotation : 180 - angle, duration : 0})
 // Initial Pos C++
 gsap.to("#cpp", {rotation : angle - 180, duration : 0, transformOrigin: `${centerX}px 0%`})
 gsap.to("#cpp-image", {rotation : 180 - angle, duration : 0})
@@ -124,9 +132,9 @@ gsap.to("#unity-image", {rotation : 180 - angle, duration : 0})
 //#endregion
 
 //#region Orbit
-// // // Orbit Python
-gsap.to("#python", {rotation : -angle, duration : 20, ease:"linear", transformOrigin: `${centerX - pythonPos}px 0%`, repeat : "-1" })
-gsap.to("#python-image", {rotation : angle, duration : 20, ease:"linear", repeat : "-1"})
+// // // Orbit unreal
+gsap.to("#unreal", {rotation : -angle, duration : 20, ease:"linear", transformOrigin: `${centerX - unrealPos}px 0%`, repeat : "-1" })
+gsap.to("#unreal-image", {rotation : angle, duration : 20, ease:"linear", repeat : "-1"})
 // Orbit C++
 gsap.to("#cpp", {rotation : -angle, duration : 22, ease:"linear", transformOrigin: `${centerX - cppPos}px 0%`, repeat : "-1" })
 gsap.to("#cpp-image", {rotation : angle, duration : 22, ease:"linear", repeat : "-1"})
