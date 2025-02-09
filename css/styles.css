@@ -91,7 +91,7 @@ p{
     background-color: #171717;
     border-radius: 50px;
 
-    width: 80%;
+    width: 85%;
     height: 75%;
     padding: 2%;
 
@@ -122,6 +122,17 @@ p{
     font-size: 1.3rem;
     font-family: "Aldrich", sans-serif;
     font-weight: bold;
+}
+
+#popup-link{
+    font-size: 1rem;
+    padding: 10px;
+    text-decoration: none;
+    color: #090709;
+}
+
+#popup-image{
+    border-radius: 40px;
 }
 
 .project-section{
@@ -237,7 +248,7 @@ p{
 
 .skills-list{
     background-color: #090709;
-    display: grid !important;
+    display: grid ;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: center;
@@ -247,7 +258,7 @@ p{
 }
 
 .skill-desc{
-    display: flex;
+    display: flex !important;
     justify-self: center;
     column-gap: 5%;
 }
@@ -292,7 +303,7 @@ p{
 .show-on-big{
     display: block;
 }
-.hide-on-big{
+.hide-grid-on-big{
     display: none;
 }
 .hide-on-small{
@@ -352,8 +363,8 @@ p{
 
 @media (max-width: 768px){
 
-    .hide-on-big{
-        display: block;
+    .hide-grid-on-big{
+        display: grid;
     }
 
     h1{
@@ -458,8 +469,8 @@ p{
 
 @media (max-width: 425px){
 
-    .hide-on-big{
-        display: block;
+    .hide-grid-on-big{
+        display: grid;
     }
 
     h1{
