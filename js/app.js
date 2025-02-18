@@ -172,8 +172,7 @@ function rearrangeGrid() {
 
   window.addEventListener('resize', () => {
     // Vérifier si la taille du viewport a réellement changé
-    if (window.innerWidth !== lastWidth || window.innerHeight !== lastHeight) {
+    if (window.innerWidth !== lastWidth + 10 || window.innerWidth !== lastWidth - 10 || window.innerHeight !== lastHeight + 10 || window.innerHeight !== lastHeight - 10) {
       location.reload();
-
   }
 });
