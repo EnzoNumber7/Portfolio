@@ -12,8 +12,8 @@ body {
 
 #bgvid{
     object-fit: cover;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -55,8 +55,8 @@ p{
 }
 
 .hero{
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
 
     position: relative;
     z-index: 1;
@@ -75,7 +75,6 @@ p{
 #popup{
     background-color: rgba(0,0,0,0.8);
     z-index: 100;
-
     top: 0;
     left: 0;
     width: 100vw;
@@ -92,10 +91,12 @@ p{
     border-radius: 50px;
 
     width: 85%;
-    height: 75%;
+    min-height: 75%;
     padding: 2%;
 
     display: flex;
+
+    overflow-y: auto; /* Active le scroll si besoin */
 }
 
 .popup-no-image{
@@ -218,8 +219,6 @@ p{
     font-weight: bold;
 }
 
-
-
 .solar-system {
     background-color: #090709;
     position: relative;
@@ -282,8 +281,6 @@ p{
     padding-top: 0%;
     margin: 0px;
 }
-
-
 
 .skill {
     width: 5vw;
@@ -441,13 +438,13 @@ p{
         justify-self: center;
     
     }
-
+    
     .popup-content{
         background-color: #171717;
         border-radius: 0px;
     
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         padding: 5%;
     
         display: flex;
@@ -467,13 +464,13 @@ p{
         
         margin-top: 2%;
         margin-right: 0%;
-        max-height: 50%;
+        max-height: auto;
     }
     
     #popup-image{
         width: 100%;
         height: auto;
-        max-height: 45%;
+        max-height: auto;
     }
 
     #popup-btn{
