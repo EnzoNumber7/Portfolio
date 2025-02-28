@@ -167,12 +167,12 @@ function rearrangeGrid() {
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
 
-  let lastWidth = window.innerWidth;
-  let lastHeight = window.innerHeight;
+//   let lastWidth = window.innerWidth;
+//   let lastHeight = window.innerHeight;
 
-  window.addEventListener('resize', () => {
-    // Vérifier si la taille du viewport a réellement changé
-    if (window.innerWidth !== lastWidth + 10 || window.innerWidth !== lastWidth - 10 || window.innerHeight !== lastHeight + 10 || window.innerHeight !== lastHeight - 10) {
-      location.reload();
-  }
-});
+//   window.addEventListener('resize', () => {
+//     // Vérifier si la taille du viewport a réellement changé
+//     if (window.innerWidth !== lastWidth + 10 || window.innerWidth !== lastWidth - 10 || window.innerHeight !== lastHeight + 10 || window.innerHeight !== lastHeight - 10) {
+//       location.reload();
+//   }
+// });
