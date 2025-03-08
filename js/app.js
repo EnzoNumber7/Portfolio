@@ -166,3 +166,26 @@ function rearrangeGrid() {
   
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
+
+//   async function loadTranslations() {
+//     try {
+//         const response = await fetch("JSON/translation.json");
+//         translations = await response.json(); // Stocker les traductions dans la variable
+//         applyLanguage(); // Appliquer la langue actuelle
+//     } catch (error) {
+//         console.error("Erreur de chargement des traductions : ", error);
+//     }
+// }
+
+// function applyLanguage() {
+//   document.querySelectorAll("[data-i18n]").forEach((element) => {
+//       const key = element.getAttribute("data-i18n");
+//       element.textContent = translations[currentLang][key];
+//   });
+// }
+
+// loadTranslations();
+// currentLang = "en";
+// localStorage.setItem("lang", currentLang);
+// applyLanguage();
+
