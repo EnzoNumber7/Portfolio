@@ -167,33 +167,40 @@ function rearrangeGrid() {
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
 
-  async function loadTranslations() {
-      const response = await fetch("https://enzonumber7.github.io/Portfolio/JSON/translation.json");
-      translations = await response.json(); // Stocker les traductions dans la variable
-      applyLanguage(); // Appliquer la langue actuelle
-}
 
+const langToggle = document.getElementById("lang-toggle");
+let currentLang =   "fr";
 let translations = {};
 
-function applyLanguage() {
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-      const key = element.getAttribute("data-i18n");
-      element.textContent = translations[currentLang][key];
-  },
-  document.querySelectorAll('[data-desc-key]').forEach(button => {
-      const key = button.getAttribute('data-desc-key'); // La clé pour trouver la traduction
-      button.setAttribute('data-desc', translations[currentLang][key]);
-  }),
-  document.querySelectorAll('[data-link-key]').forEach(button => {
-      const key = button.getAttribute('data-link-key'); // La clé pour trouver la traduction
-      button.setAttribute('data-link-text', translations[currentLang][key]);
-  })
-);
-  
+
+async function loadTranslations() {
+  try {
+      const response = await fetch("https://enzonumber7.github.io/Portfolio/JSON/translation.json");
+      translations = await response.json();
+  } catch (error) {
+      console.error("Erreur lors du chargement du JSON", error);
+  }
 }
 
-loadTranslations();
-currentLang = "en";
-localStorage.setItem("lang", currentLang);
-applyLanguage();
+function updateTexts() {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          element.textContent = translations[currentLang][key];
+      },
+      document.querySelectorAll('[data-desc-key]').forEach(button => {
+          const key = button.getAttribute('data-desc-key'); // La clé pour trouver la traduction
+          button.setAttribute('data-desc', translations[currentLang][key]);
+      }),
+      document.querySelectorAll('[data-link-key]').forEach(button => {
+          const key = button.getAttribute('data-link-key'); // La clé pour trouver la traduction
+          button.setAttribute('data-link-text', translations[currentLang][key]);
+      })
+    );
+}
+langToggle.addEventListener("change", function () {
+  currentLang = this.checked ? "en" : "fr";
+  updateTexts();
+});
 
+loadTranslations();
+updateTexts();
