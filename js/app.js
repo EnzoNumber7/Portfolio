@@ -167,25 +167,33 @@ function rearrangeGrid() {
   // Appliquer au chargement et lors du redimensionnement
   rearrangeGrid();
 
-//   async function loadTranslations() {
-//     try {
-//         const response = await fetch("JSON/translation.json");
-//         translations = await response.json(); // Stocker les traductions dans la variable
-//         applyLanguage(); // Appliquer la langue actuelle
-//     } catch (error) {
-//         console.error("Erreur de chargement des traductions : ", error);
-//     }
-// }
+  async function loadTranslations() {
+      const response = await fetch("https://enzonumber7.github.io/Portfolio/JSON/translation.json");
+      translations = await response.json(); // Stocker les traductions dans la variable
+      applyLanguage(); // Appliquer la langue actuelle
+}
 
-// function applyLanguage() {
-//   document.querySelectorAll("[data-i18n]").forEach((element) => {
-//       const key = element.getAttribute("data-i18n");
-//       element.textContent = translations[currentLang][key];
-//   });
-// }
+let translations = {};
 
-// loadTranslations();
-// currentLang = "en";
-// localStorage.setItem("lang", currentLang);
-// applyLanguage();
+function applyLanguage() {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.getAttribute("data-i18n");
+      element.textContent = translations[currentLang][key];
+  },
+  document.querySelectorAll('[data-desc-key]').forEach(button => {
+      const key = button.getAttribute('data-desc-key'); // La clé pour trouver la traduction
+      button.setAttribute('data-desc', translations[currentLang][key]);
+  }),
+  document.querySelectorAll('[data-link-key]').forEach(button => {
+      const key = button.getAttribute('data-link-key'); // La clé pour trouver la traduction
+      button.setAttribute('data-link-text', translations[currentLang][key]);
+  })
+);
+  
+}
+
+loadTranslations();
+currentLang = "en";
+localStorage.setItem("lang", currentLang);
+applyLanguage();
 
