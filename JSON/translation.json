@@ -29,7 +29,13 @@
         "Unreal-skills" : "Skills : C++, Unreal Engine 5",
         "Unreal-desc" : "Development of a game on Unreal Engine 5, to explore the use of C++ in this engine.",
         "Unreal-desc-popup" : "Development of a post-apocalyptic top-down shooter game on Unreal Engine 5, with the goal of exploring the use of C++ in this engine. I focused on programming the enemies, developing their behaviors, animations, and attacks. $$ Discovering a new engine represented a challenge, especially in managing components, integrating AI, and the interaction between C++ and Blueprints. This project allowed me to deepen my AI programming skills while familiarizing myself with the specifics of Unreal Engine.",
-        "Unreal-btn" : "Learn More"
+        "Unreal-btn" : "Learn More",
+        "Blueprint-title" : "ColorLab",
+        "Blueprint-skills" : "Skills : Unreal Engine 5, Unreal Blueprint",
+        "Blueprint-desc" : "Développement d’un puzzle game sur Unreal Engine 5, pour découvrir le moteur et l'utilisation du Blueprint.",
+        "Blueprint-desc-popup" : "Development of a puzzle game, like Portal, on Unreal Engine 5, with the goal of discovering the engine and the Blueprint language. $$This project allowed me to learn the differences between Unreal and Unity, as well as the strengths and usage of the Blueprint language.",
+        "Blueprint-link-popup" : "Link to Github",
+        "Blueprint-btn" : "Learn More"
 
     },
     "fr": {
@@ -62,6 +68,13 @@
        "Unreal-skills" : "Compétences : C++, Unreal Engine 5",
        "Unreal-desc" : "Développement d’un jeu sur Unreal Engine 5, pour découvrir l’utilisation du C++ dans ce moteur.",
        "Unreal-desc-popup" : "Développement d’un jeu de tir post-apocalyptique en vue top-down sur Unreal Engine 5, avec pour objectif de découvrir l’utilisation du C++ dans ce moteur. Je me suis concentré sur la programmation des ennemis, en développant leurs comportements, leurs animations, leurs attaques. $$ Découvrir un nouveau moteur a représenté un défi, notamment sur la gestion des composants, l’intégration des IA et l’interaction entre C++ et Blueprints. Ce projet m’a permis d’approfondir mes compétences en programmation d’IA tout en me familiarisant avec les spécificités d’Unreal Engine.",
-       "Unreal-btn" : "En Savoir Plus"
+       "Unreal-btn" : "En Savoir Plus",
+       "Blueprint-title" : "ColorLab",
+       "Blueprint-skills" : "Compétences : Unreal Engine 5, Unreal Blueprint",
+       "Blueprint-desc" : "Développement d’un puzzle game sur Unreal Engine 5, pour découvrir le moteur et l'utilisation du Blueprint.",
+       "Blueprint-desc-popup" : "Développement d’un jeu de puzzle comme Portal sur Unreal Engine 5, avec pour objectif de découvrir l’utilisation du moteur et du language blueprint. $$Ce projet m'as permis d'apprendre les différences d'Unreal vis à vis d'Unity ainsi que la force et l'utilisation du language Blueprint.",
+       "Blueprint-link-popup" : "Liens vers Github",
+       "Blueprint-btn" : "En Savoir Plus"
+       
     }
 }
